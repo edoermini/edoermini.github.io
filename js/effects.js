@@ -1,8 +1,9 @@
-// implements navbar links selection
+// implements navbar links selection and scrolling on click
 $(document).ready(function() {
     $('.top-navbar-link-elem').click(function() {
         $('.top-navbar-links').find('a').removeClass('selected')
         $(this).addClass('selected')
+        
         scrollTo($(this).attr('href'))
 
         $('.mobile-navbar-links').css({
@@ -16,51 +17,15 @@ $(document).ready(function() {
     });
 });
 
-// implements dynamic navbar on scroll
+// implements dynamic navbar and and links higlight on scroll
 $(document).ready(function() {
+
+    setBg2Nav()
+    highlightNavLinks()
+
     $(window).scroll(function(){
-        if ($('.home-picture').offset().top - $(window).scrollTop() < 60) {
-            
-            $('.top-navbar').css({
-                'color':'black',
-                'background-color':'rgba(255, 255, 255, 1)',
-                'height':'60px',
-                'transition-duration':'0.3s',
-
-            });
-            $('.top-navbar-title').css({
-                'margin-top':'0px',
-                'transition-duration':'0.3s'
-            })
-            $('.top-navbar-links').css({
-                'margin-top':'0px',
-                'transition-duration':'0.3s'
-            })
-            $('.open-menu').css({
-                'margin-top':'0px',
-                'transition-duration':'0.3s'
-            })
-
-        } else {
-            $('.top-navbar').css({
-                'background-color':'initial',
-                'height':'100px',
-                'color':'white',
-                'transition-duration':'0.3s',
-            });
-            $('.top-navbar-title').css({
-                'margin-top':'40px',
-                'transition-duration':'0.3s'
-            })
-            $('.top-navbar-links').css({
-                'margin-top':'40px',
-                'transition-duration':'0.3s'
-            })
-            $('.open-menu').css({
-                'margin-top':'40px',
-                'transition-duration':'0.3s'
-            })
-        }
+        setBg2Nav()
+        highlightNavLinks()
     });
 });
 
@@ -111,9 +76,20 @@ $(document).ready(function() {
 });
 
 function scrollTo(page) {
-    $('html, body').stop().animate({
-        'scrollTop': $(page).offset().top
-    }, 300, 'swing');
+    var el = $(page)
+    var elOffset = el.offset().top;
+    var elHeight = el.height();
+    var windowHeight = $(window).height();
+    var offset;
+
+    if (elHeight < windowHeight) {
+        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+    }
+    else {
+        offset = elOffset;
+    }
+    var speed = 300;
+    $('html, body').animate({scrollTop:offset}, speed);
 }
 
 function closeMenu() {
@@ -138,4 +114,72 @@ function openMenu() {
         'transition-duration': '0.3s',
     })
     $('html').css('overflow', 'hidden')
+}
+
+// highlights navbar links based on pages position
+function highlightNavLinks() {
+    var windowHeight = $(window).height();
+
+    $('.page').each(function(i, section) {
+
+        if ($(section).height() < $(window).height()) {
+            var adjust = (windowHeight - $(section).height())/2
+        } else {
+            var adjust = 0;
+        }
+
+
+        var offset = $(section).offset().top - $(window).scrollTop() - adjust;
+
+        if ((offset + windowHeight - adjust >= 0) && (offset + windowHeight - adjust <= windowHeight+100)) {
+            $('.top-navbar-links').find('a').removeClass('selected')
+            
+            $(('#' + $(section).attr("id") + "-link")).addClass('selected')
+        }
+    });
+}
+
+function setBg2Nav() {
+    if ($('.home-picture').offset().top - $(window).scrollTop() < 60) {
+            
+        $('.top-navbar').css({
+            'color':'black',
+            'background-color':'rgba(255, 255, 255, 1)',
+            'height':'60px',
+            'transition-duration':'0.3s',
+
+        });
+        $('.top-navbar-title').css({
+            'margin-top':'0px',
+            'transition-duration':'0.3s'
+        })
+        $('.top-navbar-links').css({
+            'margin-top':'0px',
+            'transition-duration':'0.3s'
+        })
+        $('.open-menu').css({
+            'margin-top':'0px',
+            'transition-duration':'0.3s'
+        })
+
+    } else {
+        $('.top-navbar').css({
+            'background-color':'initial',
+            'height':'100px',
+            'color':'white',
+            'transition-duration':'0.3s',
+        });
+        $('.top-navbar-title').css({
+            'margin-top':'40px',
+            'transition-duration':'0.3s'
+        })
+        $('.top-navbar-links').css({
+            'margin-top':'40px',
+            'transition-duration':'0.3s'
+        })
+        $('.open-menu').css({
+            'margin-top':'40px',
+            'transition-duration':'0.3s'
+        })
+    }
 }
