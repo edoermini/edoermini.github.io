@@ -3,6 +3,7 @@ $(document).ready(function() {
     $('.top-navbar-link-elem').click(function() {
         $('.top-navbar-links').find('a').removeClass('selected')
         $(this).addClass('selected')
+        scrollTo($(this).attr('href'))
 
         $('.mobile-navbar-links').css({
             'opacity':'0',
@@ -109,6 +110,11 @@ $(document).ready(function() {
     });
 });
 
+function scrollTo(page) {
+    $('html, body').stop().animate({
+        'scrollTop': $(page).offset().top
+    }, 300, 'swing');
+}
 
 function closeMenu() {
     $('.mobile-navbar-links').css({

@@ -228,7 +228,7 @@ html, body {
     background-color: white;
     width: 100%;
     color: black;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
 }
 
 .about-img::before {
@@ -262,6 +262,7 @@ html, body {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 .about-content-text {
     margin: 50px;
@@ -273,14 +274,9 @@ html, body {
     color: #00b0dc;
 }
 
-.about-description p{
+.about-description > p{
     line-height: 1.5;
 }
-.about-description a {
-    text-decoration: none;
-    color: #66e0ff;
-}
-
 
 @media screen and (max-width: 600px) {
     .open-menu, .close-menu {
