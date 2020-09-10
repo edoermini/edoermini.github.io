@@ -143,12 +143,6 @@ html, body {
     background-size: cover;
 }
 
-.home-bg-image {
-    height: 100%;
-    width: 100%;
-    filter: brightness(30%);
-}
-
 .home-content {
     position: absolute;
     width: 100%;
@@ -317,7 +311,7 @@ html, body {
 .skills h1 {
     margin-top: 60px;
     font-family: kumbhsans-bold;
-    color: #00b0dc;
+    color: white;
 }
 
 .skills-data {
@@ -331,7 +325,7 @@ html, body {
     width: 40%;
     display: flex;
     flex-direction: column;
-    margin: 10px 10px 40px 10px;
+    margin: 30px 30px 40px 30px;
 }
 .skill .name {
     font-family: kumbhsans-bold;
@@ -340,6 +334,8 @@ html, body {
 }
 .skill .quantity {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
 }
 
@@ -358,6 +354,66 @@ html, body {
     height: 20px;
 }
 
+
+
+
+
+/******************* CONTACTS PAGE *******************/
+
+.contacts {
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    font-family: kumbhsans-bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+}
+.contacts-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contacts-content .contacts-title {
+    margin-bottom: 15px;
+    font-family: kumbhsans-light;
+    font-size: large;
+}
+
+.contacts-content  a{
+    text-decoration: none;
+    color: inherit;
+    transition-duration: 0.4s;
+    z-index: 1;
+}
+
+.contacts-content a:hover {
+    color: #00b0dc;
+    transition-duration: 0.4s; 
+}
+
+
+
+/******************* FOOTER *******************/
+
+.footer {
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer a {
+    color: #00b0dc;
+    text-decoration: none;
+}
+
 @media screen and (max-width: 600px) {
     .open-menu, .close-menu {
         display: initial;
@@ -366,6 +422,16 @@ html, body {
         flex-direction: column;
     }
     .skill {
-        width: 70%;
+        width: 80%;
+        margin: 0 0 40px 0;
     }
+    .contacts {
+        font-size: 7vw;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+   .skill {
+       width: 450px;
+   }
 }

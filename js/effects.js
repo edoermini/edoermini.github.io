@@ -39,8 +39,11 @@ $(document).ready(function() {
         if ($(window).width() <= 600 ){
             $('.top-navbar-links').addClass('mobile-navbar-links')
         } else {
-            $('.top-navbar-links').removeClass('mobile-navbar-links')
-            $('.top-navbar-links').removeAttr('style')
+            if ($('.top-navbar-links').hasClass('mobile-navbar-links')) {
+                $('.top-navbar-links').removeClass('mobile-navbar-links')
+                $('.top-navbar-links').removeAttr('style')
+                setBg2Nav()
+            }
         }
     })
 })
@@ -88,6 +91,7 @@ function scrollTo(page) {
     else {
         offset = elOffset;
     }
+    
     var speed = 300;
     $('html, body').animate({scrollTop:offset}, speed);
 }
@@ -120,23 +124,24 @@ function openMenu() {
 function highlightNavLinks() {
     var windowHeight = $(window).height();
 
-    $('.page').each(function(i, section) {
+    $('.top-navbar-links a').each(function(i, section) {
+        var link = $(section)
+        var page = $($(section).attr('href'))
 
-        if ($(section).height() < $(window).height()) {
-            var adjust = (windowHeight - $(section).height())/2
+        if (page.height() < windowHeight) {
+            var adjust = (windowHeight - page.height())/2
         } else {
             var adjust = 0;
         }
 
-
-        var offset = $(section).offset().top - $(window).scrollTop() - adjust;
+        var offset = page.offset().top - $(window).scrollTop() - adjust;
 
         if ((offset + windowHeight - adjust >= 0) && (offset + windowHeight - adjust <= windowHeight+100)) {
             $('.top-navbar-links').find('a').removeClass('selected')
-            
-            $(('#' + $(section).attr("id") + "-link")).addClass('selected')
+            link.addClass('selected')
         }
-    });
+        
+    })
 }
 
 function setBg2Nav() {
