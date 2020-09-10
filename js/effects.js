@@ -85,13 +85,19 @@ function scrollTo(page) {
     var windowHeight = $(window).height();
     var offset;
 
-    if (elHeight < windowHeight) {
-        offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
-    }
-    else {
+    if ($(page).attr('id') == 'contacts') {
         offset = elOffset;
+    } else {
+        
+        if (elHeight < windowHeight) {
+            offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+        } else if (elHeight > windowHeight){
+            offset = elOffset - 60;
+        } else {
+            offset = elOffset;
+        }
     }
-    
+
     var speed = 300;
     $('html, body').animate({scrollTop:offset}, speed);
 }

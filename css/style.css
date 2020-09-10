@@ -362,7 +362,6 @@ html, body {
     text-decoration: none;
     color: inherit;
     transition-duration: 0.4s;
-    z-index: 1;
 }
 
 .contacts-content a:hover {
