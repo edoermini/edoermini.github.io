@@ -292,7 +292,7 @@ html, body {
 
 .skills {
     width:100%;
-    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('/img/skills-bg.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.755), rgba(0, 0, 0, 0.7) ), url('/img/skills-bg.jpg');
     background-position:center;
     background-size: cover;
     background-attachment: fixed;
