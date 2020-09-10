@@ -292,11 +292,10 @@ html, body {
 
 .skills {
     width:100%;
-    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url('/img/skills-bg.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('/img/skills-bg.jpg');
     background-position:center;
     background-size: cover;
     background-attachment: fixed;
-    padding-bottom: 30px;
 }
 
 .skills-content {
@@ -309,50 +308,26 @@ html, body {
 }
 
 .skills h1 {
-    margin-top: 60px;
     font-family: kumbhsans-bold;
-    color: white;
+    color: #00b0dc;
 }
 
 .skills-data {
     width: 90%;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     flex-wrap: wrap;
 }
-.skill {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    margin: 30px 30px 40px 30px;
-}
-.skill .name {
-    font-family: kumbhsans-bold;
-    margin: 10px;
-    font-size: large;
-}
-.skill .quantity {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+
+.skills-section {
+    flex: 1;
+    margin: 60px;
 }
 
-.skill .quantity .percentage {
-    margin-left: 10px;
+.skills-section ul {
+    font-size: large;
+    line-height: 35px;
 }
-.skill .quantity .progress-bar {
-    background-color: rgba(89, 89, 89, .70);
-    border-radius: 10px;
-    width: 100%;
-    height: 20px;
-}
-.skill .quantity .progress-bar .progress {
-    background-color: #00b0dc;
-    border-radius: 10px;
-    height: 20px;
-}
+
 
 
 
@@ -422,20 +397,19 @@ html, body {
     .open-menu, .close-menu {
         display: initial;
     }
+    .skills {
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
     .skills-data {
         flex-direction: column;
+        align-items: center;
     }
-    .skill {
+    .skills-section {
+        margin: 10px;
         width: 80%;
-        margin: 0 0 40px 0;
     }
     .contacts {
         font-size: 7vw;
     }
-}
-
-@media screen and (min-width: 1280px) {
-   .skill {
-       width: 450px;
-   }
 }
