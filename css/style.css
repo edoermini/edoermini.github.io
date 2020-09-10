@@ -100,7 +100,7 @@ html, body {
 .mobile-navbar-links {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(255,255, 255, 1);
+    background-color: white;
     position:fixed;
     top:0;
     left:0;
@@ -392,7 +392,7 @@ html, body {
 
 .contacts-content a:hover {
     color: #00b0dc;
-    transition-duration: 0.4s; 
+    transition-duration: 0.4s;
 }
 
 
@@ -412,6 +412,10 @@ html, body {
 .footer a {
     color: #00b0dc;
     text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 600px) {
