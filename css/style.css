@@ -129,6 +129,11 @@ html, body {
     transition-duration: 0.3s;
 }
 
+@media screen and (max-width: 600px) {
+    .open-menu, .close-menu {
+        display: initial;
+    }
+}
 
 
 
@@ -230,7 +235,6 @@ html, body {
 
 
 
-
 /******************* ABOUT PAGE *******************/
 
 .about {
@@ -288,6 +292,7 @@ html, body {
 
 
 
+
 /******************* SKILLS PAGE *******************/
 
 .skills {
@@ -328,7 +333,26 @@ html, body {
     line-height: 35px;
 }
 
-
+@media screen and (max-width: 600px) {
+    .skills {
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+    .skills-data {
+        flex-direction: column;
+        align-items: center;
+    }
+    .skills-section {
+        margin: 10px;
+        width: 80%;
+    }
+    .skills-section ul {
+        padding-left: 16px;
+    }
+    .skills-section ul ul{
+        padding-left: 25px;
+    }
+}
 
 
 
@@ -369,6 +393,22 @@ html, body {
     transition-duration: 0.4s;
 }
 
+@media screen and (max-width: 810px) {
+    .contacts a {
+        display: flex;
+        flex-direction: column;
+    }
+    .contacts a span {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .contacts a .at {
+        text-align: center;
+        font-size: x-large;
+    }
+}
+
+
 
 
 /******************* FOOTER *******************/
@@ -390,31 +430,4 @@ html, body {
 
 .footer a:hover {
     text-decoration: underline;
-}
-
-@media screen and (max-width: 600px) {
-    .open-menu, .close-menu {
-        display: initial;
-    }
-    .skills {
-        padding-top: 30px;
-        padding-bottom: 40px;
-    }
-    .skills-data {
-        flex-direction: column;
-        align-items: center;
-    }
-    .skills-section {
-        margin: 10px;
-        width: 80%;
-    }
-    .skills-section ul {
-        padding-left: 16px;
-    }
-    .skills-section ul ul{
-        padding-left: 25px;
-    }
-    .contacts {
-        font-size: 7vw;
-    }
 }
