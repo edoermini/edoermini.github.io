@@ -1,3 +1,5 @@
+var mobileWidth = 580;
+
 $(document).ready(function() {
 
     // logo effect on page load complete
@@ -62,7 +64,12 @@ $(window).scroll(function(){
             'transition-duration':'0.5s',
             'color': '#F6AE2D'
         })
-        
+        if ($(window).width() <= mobileWidth) {
+            $('.nav-links').css({
+                'padding-top':unscrolledWindowPadding+'px',
+                'transition-duration':'0.5s'
+            })
+        }
     } else {
         $('.navbar').css({
             'background-color': 'transparent',
@@ -70,13 +77,38 @@ $(window).scroll(function(){
             'transition-duration':'0.5s',
             'color': '#F6AE2D'
         })
+        if ($(window).width() <= mobileWidth) {
+            $('.nav-links').css({
+                'padding-top':scrolledWindowPadding+'px',
+                'transition-duration':'0.5s'
+            })
+        }
     }
 })
 
-$(document).on('click', '.next-page-arrow', function() {
-    smoothScroll('.presentation-page')
+// navbar variables
+var scrolledWindowPadding = 90;
+var unscrolledWindowPadding = 40;
+var initialMenuTopPosition = -40;
+
+// navbar mobile version open/close effects
+$(window).resize(function () {
+    if ($(window).width() > mobileWidth) {
+        $('.nav-links').removeAttr('style')
+        $('.nav-links').addClass('closed')
+    }
+})
+$(document).on('click', '.open-close-menu', function() {
+
+    if ($('.nav-links').hasClass('closed')) {
+        openMenu();
+    } else {
+        closeMenu();
+    }
+    console.log('hello');
 })
 
+// switcher fade in/fade out effects
 $(document).on('click', '#aziende', function() {
     $('.highlighted').removeClass('highlighted')
     $('#aziende').addClass('highlighted')
@@ -156,15 +188,6 @@ $(document).ready(function() {
     });
 });
 
-$(document).on('click', '#contacts-ref', function() {
-
-    if ($('.contacts-page').height() < $(window).height()) {
-        smoothScroll('.contacts-form');
-    } else {
-        smoothScroll('.contacts-page');
-    }
-})
-
 function smoothScroll(page) {
     var el = $(page)
     var elOffset = el.offset().top;
@@ -201,6 +224,39 @@ function selectEvent(value) {
             console.log("coworking");
             break;
     }
+}
+
+function closeMenu() {
+    if ($(window).width() <= mobileWidth) {
+        $('.nav-links').css({
+            'opacity':'0%',
+            'top':initialMenuTopPosition+'px',
+            'padding-top':$('.navbar').height()-30+'px',
+            'transition-duration':'0.3s'
+        })
+        setTimeout(function() {
+            $('.nav-links').css({
+                'display':'none',
+            })
+        }, 500)
+        $('.nav-links').addClass('closed')
+    }
+}
+
+function openMenu() {
+    if ($(window).width() <= mobileWidth) {
+        $('.nav-links').css({
+            'display':'block'
+        })
+        $('.nav-links').css({
+            'opacity':'100%',
+            'top':'0px',
+            'padding-top':$('.navbar').height()-30+'px',
+            'transition-duration':'0.3s'
+        })
+        $('.nav-links').removeClass('closed')
+    }
+
 }
 
 function sendMail() {
