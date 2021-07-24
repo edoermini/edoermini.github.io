@@ -171,6 +171,8 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 200px;
+    width: 200px;
 }
 .home-picture img {
     border-radius: 100%;
@@ -402,6 +404,7 @@ html, body {
     .contacts a {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
     .contacts a span {
         margin-top: 5px;
