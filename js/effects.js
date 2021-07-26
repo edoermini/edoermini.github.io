@@ -67,7 +67,7 @@ $(document).ready(function() {
     new Typewriter('#typewriter', {
         strings: [
             "Degree in Computer Science.",
-            'MCs student in cybersecurity.',
+            'MSc student in cybersecurity.',
             'Software developer.',
             'Cybersecurity enthusiast.',
         ],
