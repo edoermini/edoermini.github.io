@@ -340,7 +340,23 @@ html, body {
     line-height: 35px;
 }
 
-@media screen and (max-width: 600px) {
+.li-group {
+    position: relative;
+}
+
+.li-group svg {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.li-group span {
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 910px) {
     .skills {
         padding-top: 30px;
         padding-bottom: 40px;
