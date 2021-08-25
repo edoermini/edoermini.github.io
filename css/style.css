@@ -297,8 +297,21 @@ html, body {
     line-height: 1.5;
 }
 
+.header-with-icon {
+    display: flex; 
+    align-items: center; 
+    flex-direction: row; 
+    margin-top: 60px; 
+    margin-bottom: 20px;
+}
 
+.header-with-icon h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
 
+.header-with-icon img{
+    margin-left: 20px;
+}
 
 /******************* SKILLS PAGE *******************/
 
