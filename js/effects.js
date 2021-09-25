@@ -132,7 +132,13 @@ function highlightNavLinks() {
 
     $('.top-navbar-links a').each(function(i, section) {
         var link = $(section)
-        var page = $($(section).attr('href'))
+        var link_href = $(section).attr('href')
+
+        if (link_href.includes('/')) {
+            return
+        }
+
+        var page = $(link_href)
 
         if (page.height() < windowHeight) {
             var adjust = (windowHeight - page.height())/2
