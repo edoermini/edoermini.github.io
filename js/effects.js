@@ -66,8 +66,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     new Typewriter('#typewriter', {
         strings: [
-            "BSc computer science.",
-            'MSc cybersecurity student.',
+            "MSc cybersecurity.",
             'Software developer.',
             'Cybersecurity enthusiast.',
         ],
